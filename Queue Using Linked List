@@ -1,0 +1,43 @@
+public class sourav{
+    class Node{
+        int data;
+        Node next;
+        public Node(int data){
+            this.data = data;
+        }
+    }
+    Node front;
+    Node rear;
+    public void enqueue(int data){
+        Node nn = new Node(data);
+        if(front == null){
+            front = rear = nn;
+            return;
+        }
+        rear.next = nn;
+    }
+    public int dequeue(){
+        if(front == null){
+            return -1;
+        }
+       front = front.next;
+       return front.data;
+    }
+    public void display(){
+       // Node front  = this.head;
+        while(front != null){
+            System.out.print(front.data+" ");
+            front = front.next;
+        }
+    }
+public static void main(String[] args){
+    sourav ss = new sourav();
+    ss.enqueue(34);
+    ss.enqueue(98);
+    ss.enqueue(25);
+    ss.display();
+    ss.enqueue(62);
+    ss.display();
+
+}
+}
